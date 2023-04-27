@@ -4,14 +4,25 @@ import eyesImage1 from "../../../resources/wink/eyes1.svg";
 import eyesImage2 from "../../../resources/wink/eyes2.svg";
 import eyesImage3 from "../../../resources/wink/eyes3.svg";
 import eyesImage4 from "../../../resources/wink/eyes4.svg";
+import eyesImage5 from "../../../resources/wink/eyes5.svg";
+import eyesImage6 from "../../../resources/wink/eyes6.svg";
+import eyesImage7 from "../../../resources/wink/eyes7.svg";
+import { TFaceProps } from "../../../types";
 
-const IMAGES = [eyesImage0, eyesImage1, eyesImage2, eyesImage3, eyesImage4];
+const IMAGES = [
+  eyesImage0,
+  eyesImage1,
+  eyesImage2,
+  eyesImage3,
+  eyesImage4,
+  eyesImage5,
+  eyesImage6,
+  eyesImage7,
+];
 
-const interval = 1500;
+interface TWinkProps extends TFaceProps {}
 
-interface TWinkProps {}
-
-const Wink = ({}: TWinkProps) => {
+const Wink = ({ interval = 2000 }: TWinkProps) => {
   const [image, setImage] = useState<string>(IMAGES[0]);
   const imageIdx = useRef<number>(0);
   const prevTimer = useRef<number>(0);
@@ -44,11 +55,11 @@ const Wink = ({}: TWinkProps) => {
   };
 
   return (
-    <div className="flex justify-between">
-      <div className="w-[500px] h-[300px] flex flex-col justify-center items-center">
+    <div className="flex justify-between px-40 pt-20">
+      <div className="flex flex-col justify-end items-center">
         <img src={eyesImage0} />
       </div>
-      <div className="w-[500px] h-[300px] flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-end items-center">
         <img src={image} />
       </div>
     </div>

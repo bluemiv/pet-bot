@@ -12,6 +12,7 @@ import eyesImage9 from "../../../resources/blink/eyes9.svg";
 import eyesImage10 from "../../../resources/blink/eyes10.svg";
 import eyesImage11 from "../../../resources/blink/eyes11.svg";
 import eyesImage12 from "../../../resources/blink/eyes12.svg";
+import { TFaceProps } from "../../../types";
 
 const IMAGES = [
   eyesImage0,
@@ -29,9 +30,7 @@ const IMAGES = [
   eyesImage12,
 ];
 
-interface TBlinkProps {
-  interval?: number;
-}
+interface TBlinkProps extends TFaceProps {}
 
 const Blink = ({ interval = 2000 }: TBlinkProps) => {
   const [image, setImage] = useState<string>(IMAGES[0]);
