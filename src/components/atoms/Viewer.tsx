@@ -5,7 +5,7 @@ interface TPetBotViewerProps {
 }
 
 const Viewer = ({ face }: TPetBotViewerProps) => (
-  <div className="relative w-viewer h-viewer bg-black">{face}</div>
+  <div className="relative w-viewer h-viewer bg-black rounded-3xl">{face}</div>
 );
 
 export default Viewer;

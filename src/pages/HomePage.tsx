@@ -12,6 +12,8 @@ const HomePage = () => {
     switch (faceId) {
       case FACE_ID.WINK:
         return <Face.Wink />;
+      case FACE_ID.SMILE:
+        return <Face.Smile />;
       default:
         return <Face.Blink />;
     }
