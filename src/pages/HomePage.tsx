@@ -14,6 +14,8 @@ const HomePage = () => {
         return <Face.Wink />;
       case FACE_ID.SMILE:
         return <Face.Smile />;
+      case FACE_ID.DARAE:
+        return <Face.Darae />;
       default:
         return <Face.Blink />;
     }
