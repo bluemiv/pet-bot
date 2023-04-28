@@ -8,6 +8,8 @@ import eyesImage4 from "../../../resources/wink/eyes4.svg";
 import eyesImage5 from "../../../resources/wink/eyes5.svg";
 import eyesImage6 from "../../../resources/wink/eyes6.svg";
 import eyesImage7 from "../../../resources/wink/eyes7.svg";
+import eyesImage8 from "../../../resources/wink/eyes8.svg";
+import eyesImage9 from "../../../resources/wink/eyes9.svg";
 
 const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },
@@ -17,13 +19,18 @@ const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage4 },
   { image: eyesImage5 },
   { image: eyesImage6 },
-  { image: eyesImage7 },
+  { image: eyesImage7, time: 1000, leftKeyframe: "rotate-wink-left-eyes" },
+  { image: eyesImage8 },
+  { image: eyesImage9 },
 ];
 
 interface TWinkWithKeyFrameProps extends TEyesProps {}
 
 const WinkWithKeyFrame = ({ interval = 2000 }: TWinkWithKeyFrameProps) => {
-  const [image, setImage] = useState<string>(imageSequence[0].image);
+  const [imageSeq, setImageSeq] = useState<TEyesImageSequence>(
+    imageSequence[0]
+  );
+
   const imageIdx = useRef<number>(0);
   const prevTimer = useRef<number>(0);
   const intervalStart = useRef<number>(0);
@@ -48,10 +55,10 @@ const WinkWithKeyFrame = ({ interval = 2000 }: TWinkWithKeyFrameProps) => {
         if (timestamp - intervalStart.current > interval) {
           intervalStart.current = 0;
           imageIdx.current = 0;
-          setImage(imageSequence[imageIdx.current].image);
+          setImageSeq(imageSequence[imageIdx.current]);
         }
       } else {
-        setImage(imageSequence[imageIdx.current].image);
+        setImageSeq(imageSequence[imageIdx.current]);
       }
     }
     requestAnimationFrame(animate);
@@ -60,10 +67,18 @@ const WinkWithKeyFrame = ({ interval = 2000 }: TWinkWithKeyFrameProps) => {
   return (
     <div className="flex justify-between px-40 pt-20">
       <div className="flex flex-col justify-end items-center">
-        <img src={eyesImage0} alt="left eyes" />
+        <img
+          src={eyesImage0}
+          alt="left eyes"
+          className={`${imageSeq.rightKeyframe || ""}`}
+        />
       </div>
       <div className="flex flex-col justify-end items-center">
-        <img src={image} alt="right eyes" />
+        <img
+          src={imageSeq.image}
+          alt="right eyes"
+          className={`${imageSeq.leftKeyframe || ""}`}
+        />
       </div>
     </div>
   );
