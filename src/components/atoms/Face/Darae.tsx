@@ -74,10 +74,10 @@ const Darae = ({ interval = 2000 }: TDaraeProps) => {
   return (
     <div className="flex justify-between px-40 pt-20">
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="left eyes" />
       </div>
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="right eyes" />
       </div>
     </div>
   );

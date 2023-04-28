@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { TImageSequence, TFaceProps } from "../../../types";
 import eyesImage0 from "../../../resources/blink/eyes0.svg";
 import eyesImage1 from "../../../resources/blink/eyes1.svg";
 import eyesImage2 from "../../../resources/blink/eyes2.svg";
@@ -12,28 +13,27 @@ import eyesImage9 from "../../../resources/blink/eyes9.svg";
 import eyesImage10 from "../../../resources/blink/eyes10.svg";
 import eyesImage11 from "../../../resources/blink/eyes11.svg";
 import eyesImage12 from "../../../resources/blink/eyes12.svg";
-import { TFaceProps } from "../../../types";
 
-const IMAGES = [
-  eyesImage0,
-  eyesImage1,
-  eyesImage2,
-  eyesImage3,
-  eyesImage4,
-  eyesImage5,
-  eyesImage6,
-  eyesImage7,
-  eyesImage8,
-  eyesImage9,
-  eyesImage10,
-  eyesImage11,
-  eyesImage12,
+const imageSequence: TImageSequence[] = [
+  { image: eyesImage0 },
+  { image: eyesImage1 },
+  { image: eyesImage2 },
+  { image: eyesImage3 },
+  { image: eyesImage4 },
+  { image: eyesImage5 },
+  { image: eyesImage6 },
+  { image: eyesImage7 },
+  { image: eyesImage8 },
+  { image: eyesImage9 },
+  { image: eyesImage10 },
+  { image: eyesImage11 },
+  { image: eyesImage12 },
 ];
 
 interface TBlinkProps extends TFaceProps {}
 
 const Blink = ({ interval = 2000 }: TBlinkProps) => {
-  const [image, setImage] = useState<string>(IMAGES[0]);
+  const [image, setImage] = useState<string>(imageSequence[0].image);
   const imageIdx = useRef<number>(0);
   const prevTimer = useRef<number>(0);
   const intervalStart = useRef<number>(0);
@@ -45,20 +45,23 @@ const Blink = ({ interval = 2000 }: TBlinkProps) => {
 
   const animate: FrameRequestCallback = (timestamp) => {
     const delta = timestamp - prevTimer.current;
-    if (prevTimer.current === 0 || delta > 10) {
+    if (
+      prevTimer.current === 0 ||
+      delta > (imageSequence?.[imageIdx.current]?.time ?? 10)
+    ) {
       prevTimer.current = timestamp;
       imageIdx.current = imageIdx.current + 1;
-      if (imageIdx.current > IMAGES.length - 1) {
+      if (imageIdx.current > imageSequence.length - 1) {
         if (intervalStart.current === 0) {
           intervalStart.current = timestamp;
         }
         if (timestamp - intervalStart.current > interval) {
           intervalStart.current = 0;
           imageIdx.current = 0;
-          setImage(IMAGES[imageIdx.current]);
+          setImage(imageSequence[imageIdx.current].image);
         }
       } else {
-        setImage(IMAGES[imageIdx.current]);
+        setImage(imageSequence[imageIdx.current].image);
       }
     }
     requestAnimationFrame(animate);
@@ -67,10 +70,10 @@ const Blink = ({ interval = 2000 }: TBlinkProps) => {
   return (
     <div className="flex justify-between px-40 pt-20">
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="left eyes" />
       </div>
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="right eyes" />
       </div>
     </div>
   );

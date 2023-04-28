@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { TFaceProps } from "../../../types";
+import type { TFaceProps, TImageSequence } from "../../../types";
 import eyesImage0 from "../../../resources/smile/eyes0.svg";
 import eyesImage1 from "../../../resources/smile/eyes1.svg";
 import eyesImage2 from "../../../resources/smile/eyes2.svg";
@@ -13,7 +13,7 @@ import eyesImage9 from "../../../resources/smile/eyes9.svg";
 import eyesImage10 from "../../../resources/smile/eyes10.svg";
 import eyesImage11 from "../../../resources/smile/eyes11.svg";
 
-const imageSequence = [
+const imageSequence: TImageSequence[] = [
   { image: eyesImage0 },
   { image: eyesImage1 },
   { image: eyesImage2 },
@@ -68,10 +68,10 @@ const Smile = ({ interval = 2000 }: TSmileProps) => {
   return (
     <div className="flex justify-between px-40 pt-20">
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="left eyes" />
       </div>
       <div className="flex flex-col justify-end items-center">
-        <img src={image} />
+        <img src={image} alt="right eyes" />
       </div>
     </div>
   );
