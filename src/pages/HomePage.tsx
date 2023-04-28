@@ -12,6 +12,8 @@ const HomePage = () => {
     switch (faceId) {
       case FACE_ID.WINK:
         return <Face.Wink />;
+      case FACE_ID.WINK_KEYFRAME:
+        return <Face.WinkWithKeyFrame />;
       case FACE_ID.SMILE:
         return <Face.Smile />;
       case FACE_ID.DARAE:

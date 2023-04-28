@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TImageSequence, TFaceProps } from "../../../types";
+import { TEyesImageSequence, TEyesProps } from "../../../types";
 import eyesImage0 from "../../../resources/blink/eyes0.svg";
 import eyesImage1 from "../../../resources/blink/eyes1.svg";
 import eyesImage2 from "../../../resources/blink/eyes2.svg";
@@ -14,7 +14,7 @@ import eyesImage10 from "../../../resources/blink/eyes10.svg";
 import eyesImage11 from "../../../resources/blink/eyes11.svg";
 import eyesImage12 from "../../../resources/blink/eyes12.svg";
 
-const imageSequence: TImageSequence[] = [
+const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },
   { image: eyesImage1 },
   { image: eyesImage2 },
@@ -30,7 +30,7 @@ const imageSequence: TImageSequence[] = [
   { image: eyesImage12 },
 ];
 
-interface TBlinkProps extends TFaceProps {}
+interface TBlinkProps extends TEyesProps {}
 
 const Blink = ({ interval = 2000 }: TBlinkProps) => {
   const [image, setImage] = useState<string>(imageSequence[0].image);

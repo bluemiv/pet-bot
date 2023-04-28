@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { TFaceProps } from "../../../types";
+import type { TEyesProps } from "../../../types";
 import eyesImage0 from "../../../resources/darae/eyes0.svg";
 import eyesImage1 from "../../../resources/darae/eyes1.svg";
 import eyesImage2 from "../../../resources/darae/eyes2.svg";
@@ -34,7 +34,7 @@ const imageSequence: { image: string; time?: number }[] = [
   { image: eyesImage14 },
 ];
 
-interface TDaraeProps extends TFaceProps {}
+interface TDaraeProps extends TEyesProps {}
 
 const Darae = ({ interval = 2000 }: TDaraeProps) => {
   const [image, setImage] = useState<string>(imageSequence[0].image);

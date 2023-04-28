@@ -11,27 +11,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.twinkle-eyes  {
-  @apply w-eyes h-eyes bg-primary;
-  animation-name: twinkleEyes;
-  animation-iteration-count: infinite;
-  animation-duration: 2.5s;
-  animation-timing-function: ease-out;
-  border-radius: 5%;
-}
-
-@keyframes twinkleEyes {
-  0% {
-    height: 100%;
-  }
-  50% {
-    height: 100%;
-  }
-  56.25% {
-    height: 0%;
-  }
-  62.5% {
-    height: 100%;
-  }
-}

@@ -1,17 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { TEyesProps, TEyesImageSequence } from "../../../types";
-import eyesImage0 from "../../../resources/smile/eyes0.svg";
-import eyesImage1 from "../../../resources/smile/eyes1.svg";
-import eyesImage2 from "../../../resources/smile/eyes2.svg";
-import eyesImage3 from "../../../resources/smile/eyes3.svg";
-import eyesImage4 from "../../../resources/smile/eyes4.svg";
-import eyesImage5 from "../../../resources/smile/eyes5.svg";
-import eyesImage6 from "../../../resources/smile/eyes6.svg";
-import eyesImage7 from "../../../resources/smile/eyes7.svg";
-import eyesImage8 from "../../../resources/smile/eyes8.svg";
-import eyesImage9 from "../../../resources/smile/eyes9.svg";
-import eyesImage10 from "../../../resources/smile/eyes10.svg";
-import eyesImage11 from "../../../resources/smile/eyes11.svg";
+import eyesImage0 from "../../../resources/wink/eyes0.svg";
+import eyesImage1 from "../../../resources/wink/eyes1.svg";
+import eyesImage2 from "../../../resources/wink/eyes2.svg";
+import eyesImage3 from "../../../resources/wink/eyes3.svg";
+import eyesImage4 from "../../../resources/wink/eyes4.svg";
+import eyesImage5 from "../../../resources/wink/eyes5.svg";
+import eyesImage6 from "../../../resources/wink/eyes6.svg";
+import eyesImage7 from "../../../resources/wink/eyes7.svg";
 
 const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },
@@ -22,15 +18,11 @@ const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage5 },
   { image: eyesImage6 },
   { image: eyesImage7 },
-  { image: eyesImage8, time: 1000 },
-  { image: eyesImage9 },
-  { image: eyesImage10 },
-  { image: eyesImage11 },
 ];
 
-interface TSmileProps extends TEyesProps {}
+interface TWinkWithKeyFrameProps extends TEyesProps {}
 
-const Smile = ({ interval = 2000 }: TSmileProps) => {
+const WinkWithKeyFrame = ({ interval = 2000 }: TWinkWithKeyFrameProps) => {
   const [image, setImage] = useState<string>(imageSequence[0].image);
   const imageIdx = useRef<number>(0);
   const prevTimer = useRef<number>(0);
@@ -45,7 +37,7 @@ const Smile = ({ interval = 2000 }: TSmileProps) => {
     const delta = timestamp - prevTimer.current;
     if (
       prevTimer.current === 0 ||
-      delta > (imageSequence?.[imageIdx.current]?.time ?? 15)
+      delta > (imageSequence?.[imageIdx.current]?.time ?? 25)
     ) {
       prevTimer.current = timestamp;
       imageIdx.current = imageIdx.current + 1;
@@ -68,7 +60,7 @@ const Smile = ({ interval = 2000 }: TSmileProps) => {
   return (
     <div className="flex justify-between px-40 pt-20">
       <div className="flex flex-col justify-end items-center">
-        <img src={image} alt="left eyes" />
+        <img src={eyesImage0} alt="left eyes" />
       </div>
       <div className="flex flex-col justify-end items-center">
         <img src={image} alt="right eyes" />
@@ -77,4 +69,4 @@ const Smile = ({ interval = 2000 }: TSmileProps) => {
   );
 };
 
-export default Smile;
+export default WinkWithKeyFrame;

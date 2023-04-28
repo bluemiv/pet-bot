@@ -1,10 +1,15 @@
 import { ReactNode } from "react";
 
-export interface TFaceProps {
+export interface TEyesProps {
   interval?: number;
 }
 
-export type TImageSequence = { image: string; time?: number };
+export type TEyesImageSequence = {
+  image: string;
+  time?: number;
+  leftKeyframe?: string;
+  rightKeyframe?: string;
+};
 
 export interface TCommonReactNode {
   children?: ReactNode;

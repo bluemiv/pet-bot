@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { TFaceProps, TImageSequence } from "../../../types";
+import type { TEyesProps, TEyesImageSequence } from "../../../types";
 import eyesImage0 from "../../../resources/wink/eyes0.svg";
 import eyesImage1 from "../../../resources/wink/eyes1.svg";
 import eyesImage2 from "../../../resources/wink/eyes2.svg";
@@ -9,7 +9,7 @@ import eyesImage5 from "../../../resources/wink/eyes5.svg";
 import eyesImage6 from "../../../resources/wink/eyes6.svg";
 import eyesImage7 from "../../../resources/wink/eyes7.svg";
 
-const imageSequence: TImageSequence[] = [
+const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },
   { image: eyesImage1 },
   { image: eyesImage2 },
@@ -20,7 +20,7 @@ const imageSequence: TImageSequence[] = [
   { image: eyesImage7 },
 ];
 
-interface TWinkProps extends TFaceProps {}
+interface TWinkProps extends TEyesProps {}
 
 const Wink = ({ interval = 2000 }: TWinkProps) => {
   const [image, setImage] = useState<string>(imageSequence[0].image);
