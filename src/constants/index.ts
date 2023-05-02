@@ -13,3 +13,9 @@ export const FACE = [
   { id: FACE_ID.WINK_KEYFRAME, label: "윙크(with keyframe)" },
   { id: FACE_ID.DARAE, label: "다래" },
 ] as const;
+
+export const ROUTE = {
+  HOME: "/",
+  ANIMATION: "/animation",
+  CONTINUES_SOUND: "/continues-sound",
+} as const;
