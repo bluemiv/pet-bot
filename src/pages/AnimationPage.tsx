@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FACE_ID } from "@/constants";
+import { FACE_ID } from "@animation/constants";
 import { Face, Viewer } from "@/components/atoms";
 import { Controller } from "@animation/components/modules";
 

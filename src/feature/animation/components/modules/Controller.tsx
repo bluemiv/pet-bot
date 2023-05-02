@@ -1,5 +1,5 @@
 import React from "react";
-import { FACE } from "@/constants";
+import { FACE } from "@animation/constants";
 import { Button } from "@/components/atoms";
 
 interface TControllerProps {

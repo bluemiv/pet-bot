@@ -23,7 +23,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@animation/*": ["src/feature/animation/*"],
-      "@sound/*": ["src/feature/continuesSound/*"]
+      "@continuesVoice/*": ["src/feature/continuesVoice/*"]
     }
   },
   "include": [
