@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TEyesImageSequence, TEyesProps } from "../../../types";
+import { TEyesImageSequence, TEyesProps } from "@/types";
 import eyesImage0 from "../../../resources/animation/blink/eyes0.svg";
 import eyesImage1 from "../../../resources/animation/blink/eyes1.svg";
 import eyesImage2 from "../../../resources/animation/blink/eyes2.svg";

@@ -1,6 +1,6 @@
 import React from "react";
-import { FACE } from "../../constants";
-import { Button } from "../atoms";
+import { FACE } from "@/constants";
+import { Button } from "@/components/atoms";
 
 interface TControllerProps {
   onClickButton: (id: string) => void;

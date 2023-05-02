@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Face, Viewer } from "../components/atoms";
-import { Controller } from "../components/modules";
-import { FACE_ID } from "../constants";
+import { FACE_ID } from "@/constants";
+import { Face, Viewer } from "@/components/atoms";
+import { Controller } from "@animation/components/modules";
 
 const AnimationPage = () => {
   const [faceId, setFaceId] = useState<string>(FACE_ID.BLINK);
