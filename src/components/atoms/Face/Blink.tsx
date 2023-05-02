@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { TEyesImageSequence, TEyesProps } from "../../../types";
-import eyesImage0 from "../../../resources/blink/eyes0.svg";
-import eyesImage1 from "../../../resources/blink/eyes1.svg";
-import eyesImage2 from "../../../resources/blink/eyes2.svg";
-import eyesImage3 from "../../../resources/blink/eyes3.svg";
-import eyesImage4 from "../../../resources/blink/eyes4.svg";
-import eyesImage5 from "../../../resources/blink/eyes5.svg";
-import eyesImage6 from "../../../resources/blink/eyes6.svg";
-import eyesImage7 from "../../../resources/blink/eyes7.svg";
-import eyesImage8 from "../../../resources/blink/eyes8.svg";
-import eyesImage9 from "../../../resources/blink/eyes9.svg";
-import eyesImage10 from "../../../resources/blink/eyes10.svg";
-import eyesImage11 from "../../../resources/blink/eyes11.svg";
-import eyesImage12 from "../../../resources/blink/eyes12.svg";
+import eyesImage0 from "../../../resources/animation/blink/eyes0.svg";
+import eyesImage1 from "../../../resources/animation/blink/eyes1.svg";
+import eyesImage2 from "../../../resources/animation/blink/eyes2.svg";
+import eyesImage3 from "../../../resources/animation/blink/eyes3.svg";
+import eyesImage4 from "../../../resources/animation/blink/eyes4.svg";
+import eyesImage5 from "../../../resources/animation/blink/eyes5.svg";
+import eyesImage6 from "../../../resources/animation/blink/eyes6.svg";
+import eyesImage7 from "../../../resources/animation/blink/eyes7.svg";
+import eyesImage8 from "../../../resources/animation/blink/eyes8.svg";
+import eyesImage9 from "../../../resources/animation/blink/eyes9.svg";
+import eyesImage10 from "../../../resources/animation/blink/eyes10.svg";
+import eyesImage11 from "../../../resources/animation/blink/eyes11.svg";
+import eyesImage12 from "../../../resources/animation/blink/eyes12.svg";
 
 const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },

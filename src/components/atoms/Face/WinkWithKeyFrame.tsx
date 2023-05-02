@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { TEyesProps, TEyesImageSequence } from "../../../types";
-import eyesImage0 from "../../../resources/wink/eyes0.svg";
-import eyesImage1 from "../../../resources/wink/eyes1.svg";
-import eyesImage2 from "../../../resources/wink/eyes2.svg";
-import eyesImage3 from "../../../resources/wink/eyes3.svg";
-import eyesImage4 from "../../../resources/wink/eyes4.svg";
-import eyesImage5 from "../../../resources/wink/eyes5.svg";
-import eyesImage6 from "../../../resources/wink/eyes6.svg";
-import eyesImage7 from "../../../resources/wink/eyes7.svg";
-import eyesImage8 from "../../../resources/wink/eyes8.svg";
-import eyesImage9 from "../../../resources/wink/eyes9.svg";
+import eyesImage0 from "../../../resources/animation/wink/eyes0.svg";
+import eyesImage1 from "../../../resources/animation/wink/eyes1.svg";
+import eyesImage2 from "../../../resources/animation/wink/eyes2.svg";
+import eyesImage3 from "../../../resources/animation/wink/eyes3.svg";
+import eyesImage4 from "../../../resources/animation/wink/eyes4.svg";
+import eyesImage5 from "../../../resources/animation/wink/eyes5.svg";
+import eyesImage6 from "../../../resources/animation/wink/eyes6.svg";
+import eyesImage7 from "../../../resources/animation/wink/eyes7.svg";
+import eyesImage8 from "../../../resources/animation/wink/eyes8.svg";
+import eyesImage9 from "../../../resources/animation/wink/eyes9.svg";
 
 const imageSequence: TEyesImageSequence[] = [
   { image: eyesImage0 },

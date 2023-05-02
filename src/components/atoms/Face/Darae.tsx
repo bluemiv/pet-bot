@@ -1,20 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { TEyesProps } from "../../../types";
-import eyesImage0 from "../../../resources/darae/eyes0.svg";
-import eyesImage1 from "../../../resources/darae/eyes1.svg";
-import eyesImage2 from "../../../resources/darae/eyes2.svg";
-import eyesImage3 from "../../../resources/darae/eyes3.svg";
-import eyesImage4 from "../../../resources/darae/eyes4.svg";
-import eyesImage5 from "../../../resources/darae/eyes5.svg";
-import eyesImage6 from "../../../resources/darae/eyes6.svg";
-import eyesImage7 from "../../../resources/darae/eyes7.svg";
-import eyesImage8 from "../../../resources/darae/eyes8.svg";
-import eyesImage9 from "../../../resources/darae/eyes9.svg";
-import eyesImage10 from "../../../resources/darae/eyes10.svg";
-import eyesImage11 from "../../../resources/darae/eyes11.svg";
-import eyesImage12 from "../../../resources/darae/eyes12.svg";
-import eyesImage13 from "../../../resources/darae/eyes13.svg";
-import eyesImage14 from "../../../resources/darae/eyes14.svg";
+import eyesImage0 from "../../../resources/animation/darae/eyes0.svg";
+import eyesImage1 from "../../../resources/animation/darae/eyes1.svg";
+import eyesImage2 from "../../../resources/animation/darae/eyes2.svg";
+import eyesImage3 from "../../../resources/animation/darae/eyes3.svg";
+import eyesImage4 from "../../../resources/animation/darae/eyes4.svg";
+import eyesImage5 from "../../../resources/animation/darae/eyes5.svg";
+import eyesImage6 from "../../../resources/animation/darae/eyes6.svg";
+import eyesImage7 from "../../../resources/animation/darae/eyes7.svg";
+import eyesImage8 from "../../../resources/animation/darae/eyes8.svg";
+import eyesImage9 from "../../../resources/animation/darae/eyes9.svg";
+import eyesImage10 from "../../../resources/animation/darae/eyes10.svg";
+import eyesImage11 from "../../../resources/animation/darae/eyes11.svg";
+import eyesImage12 from "../../../resources/animation/darae/eyes12.svg";
+import eyesImage13 from "../../../resources/animation/darae/eyes13.svg";
+import eyesImage14 from "../../../resources/animation/darae/eyes14.svg";
 
 const imageSequence: { image: string; time?: number }[] = [
   { image: eyesImage0 },
