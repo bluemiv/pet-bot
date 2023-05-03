@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AnimationPage, ContinuesSoundPage, HomePage } from "./pages";
+import { AnimationPage, ContinuesVoicePage, HomePage } from "./pages";
 import reportWebVitals from "./reportWebVitals";
 import { ROUTE } from "./constants";
 import "./index.css";
@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     element: <AnimationPage />,
   },
   {
-    path: ROUTE.CONTINUES_SOUND,
-    element: <ContinuesSoundPage />,
+    path: ROUTE.CONTINUES_VOICE,
+    element: <ContinuesVoicePage />,
   },
 ]);
 

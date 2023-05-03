@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="flex flex-col gap-y-4">
       {[
         { to: ROUTE.ANIMATION, label: "Animation" },
-        { to: ROUTE.CONTINUES_SOUND, label: "Continues Sound" },
+        { to: ROUTE.CONTINUES_VOICE, label: "Continues Voice" },
       ].map(({ to, label }) => (
         <Link key={label} className="rounded-xl bg-primary px-10 py-2" to={to}>
           {label}

@@ -1,5 +1,5 @@
 export const ROUTE = {
   HOME: "/",
   ANIMATION: "/animation",
-  CONTINUES_SOUND: "/continues-sound",
+  CONTINUES_VOICE: "/continues-voice",
 } as const;
