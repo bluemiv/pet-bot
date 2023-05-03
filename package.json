@@ -11,6 +11,11 @@
     "web" : "yarn workspace @pet-bot/web",
     "server" : "yarn workspace @pet-bot/server"
   },
+  "dependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "typescript": "^4.4.2"
+  },
   "devDependencies": {
     "prettier": "^2.8.8"
   },
