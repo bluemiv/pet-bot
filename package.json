@@ -8,6 +8,8 @@
     "packages": ["./apps/**"]
   },
   "scripts": {
+    "start": "yarn install && yarn web build && docker-compose up -d",
+    "stop": "docker-compose down",
     "web" : "yarn workspace @pet-bot/web",
     "server" : "yarn workspace @pet-bot/server"
   },
@@ -21,5 +23,8 @@
   },
   "repository": "https://github.com/bluemiv/pet-bot-animation.git",
   "author": "taehongkim <public.bluemiv@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  }
 }

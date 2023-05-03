@@ -17,6 +17,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "build:docker": "yarn build && docker build -t pet-bot-web:latest .",
     "test": "craco test"
   },
   "eslintConfig": {
