@@ -11,6 +11,9 @@
     "web" : "yarn workspace @pet-bot/web",
     "server" : "yarn workspace @pet-bot/server"
   },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  },
   "repository": "https://github.com/bluemiv/pet-bot-animation.git",
   "author": "taehongkim <public.bluemiv@gmail.com>",
   "license": "MIT"
