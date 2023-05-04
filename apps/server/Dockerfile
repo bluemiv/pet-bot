@@ -12,4 +12,4 @@ COPY ./yarn.lock ./yarn.lock
 
 RUN npm install
 
-ENTRYPOINT ["npm", "run", "dev"]
+ENTRYPOINT ["npm", "run", "start"]

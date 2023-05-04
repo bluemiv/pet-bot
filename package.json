@@ -8,7 +8,7 @@
     "packages": ["./apps/**"]
   },
   "scripts": {
-    "start": "yarn install && yarn web build && docker-compose up -d",
+    "start": "yarn stop && yarn install && yarn web build && docker-compose up -d",
     "stop": "docker-compose down",
     "web" : "yarn workspace @pet-bot/web",
     "server" : "yarn workspace @pet-bot/server"
