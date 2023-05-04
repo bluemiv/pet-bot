@@ -10,24 +10,40 @@ const ContinuesVoicePage = () => {
   if (isLoading) return <div>loading...</div>;
   const { names, actions } = data.results;
 
-  const continuesPlay = (currentIdx: number, urls: string[]) => {
-    const audio = document.createElement('audio');
-    audio.src = urls[currentIdx];
-    audio.onended = (time) => {
-      console.log(`${time.timeStamp}ms`);
+  const continuesPlay = (currentIdx: number, audioSourceList: AudioBufferSourceNode[]) => {
+    const audioSource = audioSourceList[currentIdx];
+    audioSource.onended = (event) => {
+      console.log(`${event.timeStamp}ms`);
       const nextIdx = currentIdx + 1;
-      if (urls.length <= nextIdx) return console.log('end');
-      continuesPlay(nextIdx, urls);
+      if (audioSourceList.length <= nextIdx) return console.log('end');
+      continuesPlay(nextIdx, audioSourceList);
     };
-    audio.play();
+    audioSource.start();
   };
 
-  const play = () => {
+  const play = async () => {
     const serverUrl = process.env.REACT_APP_SERVER_BASE_URL;
     if (!serverUrl) return;
     const urls = queue.map((d) => `${serverUrl}/voice/${d}`);
 
-    continuesPlay(0, urls);
+    const audioContext = new AudioContext();
+
+    // 미리 음성 파일을 모두 가지고 온 다음 audioBufferSource를 생성
+    const audioSourceList = await Promise.all(
+      urls.map(async (url) => {
+        const res = await fetch(url);
+        const buffer = await res.arrayBuffer();
+        const audioBuffer = await audioContext.decodeAudioData(buffer);
+
+        const source = audioContext.createBufferSource();
+        // @ts-ignore
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        return source;
+      })
+    );
+
+    continuesPlay(0, audioSourceList);
   };
 
   return (
