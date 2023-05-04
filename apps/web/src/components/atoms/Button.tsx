@@ -1,5 +1,5 @@
-import React from "react";
-import { TCommonReactNode } from "../../types";
+import React from 'react';
+import { TCommonReactNode } from '@/types';
 
 interface TButtonProps extends TCommonReactNode {
   onClick?: () => void;
@@ -7,7 +7,10 @@ interface TButtonProps extends TCommonReactNode {
 
 const Button = ({ children, onClick }: TButtonProps) => {
   return (
-    <button className="rounded-xl bg-primary px-10 py-2" onClick={onClick}>
+    <button
+      className="rounded-md bg-primary1 px-4 py-1 duration-100 ease-in-out hover:shadow hover:shadow-slate-300"
+      onClick={onClick}
+    >
       {children}
     </button>
   );

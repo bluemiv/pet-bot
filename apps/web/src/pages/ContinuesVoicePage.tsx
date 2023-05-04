@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import API from '@/api';
-import { Button } from '@/components/atoms';
+import { Button, Radio, Section } from '@/components/atoms';
 
 const ContinuesVoicePage = () => {
+  const strength = useRef<number>(3);
   const [queue, setQueue] = useState<string[]>([]);
   const { isLoading, data } = useQuery([''], () => API.getVoiceList());
 
   if (isLoading) return <div>loading...</div>;
-  const { names, actions } = data.results;
+  const labels = Object.keys(data.results);
 
   const continuesPlay = (currentIdx: number, audioSourceList: AudioBufferSourceNode[]) => {
     const audioSource = audioSourceList[currentIdx];
@@ -24,7 +25,9 @@ const ContinuesVoicePage = () => {
   const play = async () => {
     const serverUrl = process.env.REACT_APP_SERVER_BASE_URL;
     if (!serverUrl) return;
-    const urls = queue.map((d) => `${serverUrl}/voice/${d}`);
+    const urls = queue.map((d) => {
+      return `${serverUrl}/voice/${data.results[d][strength.current]}`;
+    });
 
     const audioContext = new AudioContext();
 
@@ -48,48 +51,41 @@ const ContinuesVoicePage = () => {
 
   return (
     <div className="w-viewer h-viewer m-auto flex flex-col gap-y-6">
-      {queue.length > 0 && (
-        <div className="flex items-center gap-x-4">
-          <div>
-            {queue
-              .map((d) =>
-                d
-                  .replace(/\$q/g, '?')
-                  .replace(/[a-zA-Z]+\//g, '')
-                  .replace('.mp3', '')
-              )
-              .join(' ')}
+      <Section title="음성 듣기">
+        {queue.length > 0 && (
+          <div className="flex items-center gap-x-4">
+            <div>{queue.join(' ')}</div>
+            <Button onClick={play}>Play</Button>
+            <Button onClick={() => setQueue([])}>Clear</Button>
           </div>
-          <Button onClick={play}>Play</Button>
-          <Button onClick={() => setQueue([])}>Clear</Button>
-        </div>
-      )}
-      <div className="flex flex-col gap-y-4">
-        <div className="font-bold">이름 ({names.length}개)</div>
-        <div className="flex flex-wrap items-center gap-4">
-          {names.map((name: string, idx: number) => (
-            <Button
-              key={idx}
-              onClick={() => setQueue(Array.from(new Set([...queue, `name/${name}`])))}
-            >
-              {name.replace(/\$q/g, '?')}
-            </Button>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col gap-y-4">
-        <div className="font-bold">행위 ({actions.length}개)</div>
-        <div className="flex flex-wrap items-center gap-4">
-          {actions.map((action: string, idx: number) => (
-            <Button
-              key={idx}
-              onClick={() => setQueue(Array.from(new Set([...queue, `action/${action}`])))}
-            >
-              {action.replace(/\$q/g, '?')}
-            </Button>
-          ))}
-        </div>
-      </div>
+        )}
+      </Section>
+      <Section title="감정 조절" className="flex items-center gap-x-4">
+        {[
+          { label: '중립', value: 0 },
+          { label: '슬픔', value: 1 },
+          { label: '기쁨', value: 2 },
+          { label: '분노', value: 3 },
+        ].map(({ label, value }) => (
+          <Radio
+            name="strength"
+            key={value}
+            label={label}
+            value={value}
+            defaultChecked={strength.current === value}
+            onChange={(event) => {
+              strength.current = Number(event.target?.value);
+            }}
+          />
+        ))}
+      </Section>
+      <Section title={`단어 (${labels.length}개)`} className="flex flex-wrap items-center gap-4">
+        {labels.map((label: string, idx: number) => (
+          <Button key={idx} onClick={() => setQueue(Array.from(new Set([...queue, label])))}>
+            {label}
+          </Button>
+        ))}
+      </Section>
     </div>
   );
 };

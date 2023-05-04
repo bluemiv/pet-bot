@@ -29,13 +29,25 @@ app.use(
 app.use('/voice', express.static(voiceDir));
 
 app.get(`${apiPrefix}/voice`, (req: Request, res: Response) => {
-  const names = fs.readdirSync(path.join(voiceDir, 'name'))?.filter((f) => /\.mp3$/.test(f));
-  const actions = fs.readdirSync(path.join(voiceDir, 'action'))?.filter((f) => /\.mp3$/.test(f));
-  return res.send({
-    results: {
-      names,
-      actions,
+  const files = fs.readdirSync(voiceDir)?.filter((f) => /\.mp3$/.test(f));
+  const results = files.reduce(
+    (acc: { [key: string]: { [key: string]: string } }, filename: string) => {
+      const [name, strength] = filename.split(/\$s|\.mp3/);
+      const key = name.replace(/\$q/g, '?').replace(/_/g, ' ');
+      if (!acc[key]) {
+        return { ...acc, [key]: { [strength]: filename } };
+      }
+      return {
+        ...acc,
+        [key]: { ...acc[key], [strength]: filename },
+      };
     },
+    {}
+  );
+  console.log(results);
+
+  return res.send({
+    results: results,
   });
 });
 
